@@ -142,6 +142,10 @@ HOME_DIR = sys.argv[3]
 print(CMD_CODE)
 print(KEY_NAME)
 print(HOME_DIR)
+
+changeDirCmd = "cd /etc/openvpn/easy-rsa"
+os.system(changeDirCmd)
+
 if CMD_CODE == 1:
 	StartRegistrationProcess(KEY_NAME)
 else :
