@@ -44,10 +44,10 @@ def GenerateKey(keyName):
         print('Already exist')
         return
     
-    if keyInfo.Password == '':
-        cmdStr = './easyrsa --batch build-client-full {} nopass'.format(keyName)
-        result = os.system(cmdStr)
-        print('Key Register Process Result : '+str(result))
+    # Generate easy rsa     
+    cmdStr = './easyrsa --batch build-client-full {} nopass'.format(keyName)
+    result = os.system(cmdStr)
+    print('Key Register Process Result : '+str(result))
 
     #Determine Encryption Method
     TLS_SIG = GetEncryptionType()
