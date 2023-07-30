@@ -76,7 +76,7 @@ def GenerateKey(keyName):
         cert_str += '</tls-auth>\n'
 
     #create file
-    fileName = homeDir + keyName + '.ovpn'
+    fileName = HOME_DIR + keyName + '.ovpn'
     with open(fileName, 'w') as f:
         f.write(cert_str)
 
@@ -143,7 +143,7 @@ print(CMD_CODE)
 print(KEY_NAME)
 print(HOME_DIR)
 
-if CMD_CODE == 1:
+if CMD_CODE == '1':
 	StartRegistrationProcess(KEY_NAME)
 else :
 	StartDeleteProcess(KEY_NAME)
