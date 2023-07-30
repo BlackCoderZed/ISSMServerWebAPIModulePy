@@ -45,7 +45,7 @@ def GenerateKey(keyName):
         return
     
     if keyInfo.Password == '':
-        cmdStr = './easyrsa --batch build-client-full {} nopass'.format(keyInfo.KeyName)
+        cmdStr = './easyrsa --batch build-client-full {} nopass'.format(keyName)
         result = os.system(cmdStr)
         print('Key Register Process Result : '+str(result))
 
@@ -60,10 +60,10 @@ def GenerateKey(keyName):
     cert_str += str(GetCaInfo())
     cert_str += '</ca>\n'
     cert_str += '<cert>\n'
-    cert_str += str(GetCertInfo(keyInfo.KeyName))
+    cert_str += str(GetCertInfo(keyName))
     cert_str += '</cert>\n'
     cert_str += '<key>\n'
-    cert_str += str(GetKeyInfo(keyInfo.KeyName))
+    cert_str += str(GetKeyInfo(keyName))
     cert_str += '</key>\n'
 
     if TLS_SIG == 1:
@@ -76,7 +76,7 @@ def GenerateKey(keyName):
         cert_str += '</tls-auth>\n'
 
     #create file
-    fileName = homeDir + keyInfo.KeyName + '.ovpn'
+    fileName = homeDir + keyName + '.ovpn'
     with open(fileName, 'w') as f:
         f.write(cert_str)
 
